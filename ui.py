@@ -1,4 +1,3 @@
-import time
 from tkinter import *
 from quiz_brain import QuizBrain
 THEME_COLOR = "#375362"
@@ -49,13 +48,11 @@ class QuizUI ():
         ans = self.quiz.check_answer("True")
         self.score_display.config(text=f"Score: {self.quiz.score}")
         self.color_indication(ans=ans)
-        # self.show_next_question()
         
     def is_false(self):
         ans = self.quiz.check_answer("False")
         self.score_display.config(text=f"Score: {self.quiz.score}")
         self.color_indication(ans=ans)
-        # self.show_next_question()
     
     def color_indication(self, ans: bool):
         if ans:
