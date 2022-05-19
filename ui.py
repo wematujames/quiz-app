@@ -3,7 +3,7 @@ from quiz_brain import QuizBrain
 THEME_COLOR = "#375362"
 
 class QuizUI ():
-    def __init__(self, quiz: QuizBrain):
+    def __init__(self, quiz: QuizBrain) -> None:
         self.window = Tk()
         self.window.title = "Quizzler"
         self.window.minsize(320, 300)
@@ -32,7 +32,8 @@ class QuizUI ():
         self.show_next_question()
         self.window.mainloop()
         
-    def show_next_question(self):
+        
+    def show_next_question(self) -> None:
         self.display.config(bg="white")
         if self.quiz.still_has_questions():
             q = self.quiz.next_question()
@@ -44,17 +45,19 @@ class QuizUI ():
             self.score_display.config(text="")
             
             
-    def is_true(self):
+    def is_true(self) -> None:
         ans = self.quiz.check_answer("True")
         self.score_display.config(text=f"Score: {self.quiz.score}")
         self.color_indication(ans=ans)
         
-    def is_false(self):
+        
+    def is_false(self) -> None:
         ans = self.quiz.check_answer("False")
         self.score_display.config(text=f"Score: {self.quiz.score}")
         self.color_indication(ans=ans)
     
-    def color_indication(self, ans: bool):
+    
+    def color_indication(self, ans: bool) -> None:
         if ans:
             self.display.config(bg="green")
         else:
